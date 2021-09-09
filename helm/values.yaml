@@ -1,0 +1,6 @@
+ GRPC_PORT: 
+ REST_PORT: 
+
+ replicas: 1
+ imagePullSecrets: notavailable
+

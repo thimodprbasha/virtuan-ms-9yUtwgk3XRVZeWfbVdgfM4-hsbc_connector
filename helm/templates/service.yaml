@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hsbc_connectorsrv
+    service: hsbc_connectorsrv
+  name: hsbc_connectorsrv
+spec:
+  ports:
+  - name: grpc
+    port: {{.Values.GRPC_PORT}}
+    targetPort: {{.Values.GRPC_PORT}}
+  selector:
+    app: hsbc_connector

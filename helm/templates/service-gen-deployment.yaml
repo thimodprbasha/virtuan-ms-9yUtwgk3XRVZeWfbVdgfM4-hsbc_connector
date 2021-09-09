@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hsbc_connector
+  labels:
+    app: hsbc_connector
+spec:
+  selector:
+    matchLabels:
+      app: hsbc_connector
+  replicas:  {{.Values.replicas}}
+  template:
+    metadata:
+      labels:
+        app: hsbc_connector
+    spec:
+      containers:
+       - name: hsbc_connector
+         image: /com.src.hsbc_hsbc_connector:vnHT9kLuBGLKzSHuxS8Johd
+         imagePullPolicy: Always
+         env:
+          - name: GRPC_PORT
+            value: "{{.Values.GRPC_PORT}}"
+          - name: REST_PORT
+            value: "{{.Values.REST_PORT}}"
+         ports:
+          - containerPort: {{.Values.GRPC_PORT}}
+            name: grpc
+      imagePullSecrets:
+          - name: {{.Values.imagePullSecrets}}
