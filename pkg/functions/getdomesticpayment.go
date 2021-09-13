@@ -1,8 +1,24 @@
 package functions
 
+import (
+	"github.com/go-resty/resty/v2"
+)
+
 func GetDomesticPayment(domesticpaymentid string, x_fapi_financial_id string, authorization string) (string, error) {
 
-	// Code
+	headers := map[string]string{
+		"Accept":"*/*",
+		"Accept-Encoding": "gzip, deflate, br",
+		"Connection":"keep-alive",
+		"DomesticPaymentId" : domesticpaymentid,
+		"x-fapi-financial-id": x_fapi_financial_id,
+		//"Authorization" : authorization,
+	}
+	client := resty.New()
+	resp, err := client.R().
+		SetHeaders(headers).
+		SetAuthToken(authorization).
+		Get("/search_result")
 
-	return "", nil
+	return resp.String(), err
 }

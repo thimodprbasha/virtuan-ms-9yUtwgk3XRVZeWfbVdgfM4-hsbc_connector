@@ -1,12 +1,12 @@
 package functions
 
 import (
+	"encoding/json"
 	"hsbc_connector/pkg/model"
 )
 
-func PaymentModelToString(requestpaymentdata *model.Requestpaymentdata) (string, error) {
-
-	// Code
-
-	return "", nil
+func PaymentModelToString(requestpaymentdata string) (*model.Requeststring, error) {
+	var jsonModel *model.Requeststring
+	err := json.Unmarshal([]byte(requestpaymentdata), jsonModel)
+	return jsonModel, err
 }
