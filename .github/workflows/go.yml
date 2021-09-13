@@ -22,7 +22,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: ${{ secrets.DOCKER_USERNAME }}/com.src.hsbc_hsbc_connector
-          tags: vnEyogQB23dVuSFVHuyAH8E
+          tags: vY9YXbzJ7SbEjKraSAJNdWb
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -30,7 +30,7 @@ jobs:
     - name: helm update
       run: |
           # update the helm file
-          sed -i 's/:v.*/:vnEyogQB23dVuSFVHuyAH8E/g' helm/templates/service-gen-deployment.yaml
+          sed -i 's/:v.*/:vY9YXbzJ7SbEjKraSAJNdWb/g' helm/templates/service-gen-deployment.yaml
 
     - name: Commit & Push changes
       uses: actions-js/push@master

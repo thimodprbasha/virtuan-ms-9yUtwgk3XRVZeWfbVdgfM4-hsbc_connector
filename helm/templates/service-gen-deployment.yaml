@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
        - name: hsbc_connector
-         image: thimodprabasha/com.src.hsbc_hsbc_connector:vnEyogQB23dVuSFVHuyAH8E
+         image: thimodprabasha/com.src.hsbc_hsbc_connector:vY9YXbzJ7SbEjKraSAJNdWb
          imagePullPolicy: Always
          env:
           - name: GRPC_PORT
